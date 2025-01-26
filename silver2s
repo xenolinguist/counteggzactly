@@ -1,0 +1,49 @@
+import numpy
+import scipy.special as s
+import time
+import sys
+# Combinatorics and Number Theory of Counting Sequences (CRC Press)
+#stack overflow dangerous for large values (default presumed to be 1000):
+#sys.setrecursionlimit(2000)
+
+# "classic" (intractable) mathematics textbook recursive algorithm 1
+def stirling_of_2nd_kind(upper,lower):
+    assert float(int(lower))==float(lower)
+    assert float(int(upper))==float(upper)
+    if lower == 1 or upper==lower:
+        return 1
+    elif lower==2 and lower<upper:
+        return 2**(upper-1)-1
+    elif lower==upper-1 and upper>=2:
+        return s.comb(upper,2)
+    else:
+        return stirling_of_2nd_kind(upper-1,lower-1)+lower*stirling_of_2nd_kind(upper-1,lower)
+
+# erroneous mathematics textbook recursive algorithm counterexample 2
+def stirling_of_2nd_kind_(upper,lower):
+    assert float(int(lower))==float(lower)
+    assert float(int(upper))==float(upper)
+    res=0
+    if lower == 1 or upper==lower:
+        return 1
+    elif lower==2 and lower<upper:
+        return 2**(upper-1)-1
+    elif lower==upper-1 and upper>=2:
+        return s.comb(upper,2)
+    else:
+        for m in range(1,upper+1):
+            res+=s.comb(upper-1,m-1)*stirling_of_2nd_kind_(upper-m,lower-1)
+        return res
+    
+t0=time.time()
+print(stirling_of_2nd_kind(7,3))
+t1=time.time()
+print(t1-t0)
+t0=time.time()
+print(stirling_of_2nd_kind_(7,3))
+t1=time.time()
+print(t1-t0)
+t0=time.time()
+print(s.stirling2(7,3))
+t1=time.time()
+print(t1-t0)
