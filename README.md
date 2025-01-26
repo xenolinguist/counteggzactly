@@ -13,4 +13,4 @@ If there are polynomial-time reformulations of NP problems that have the same ex
 
 ![catscradle](https://github.com/user-attachments/assets/721eab9d-e0d3-410f-86ec-e0babc6abd0b)
 
-Cat's cradle for the Travelling Salesman Problem producible in "n choose 3 composed of n choose 2" polymomial time, that might yield alternative solution approaches but anyways since the main idea of NP-Hardness is no known better than worst case exponential solution it's largely a moot point, but it's (maybe but unlikely) a valuable technical point re: in terms of the comment in the paragraph before the link.
+Cat's cradle for the Travelling Salesman Problem producible in "n choose 3 composed of n choose 2" polymomial time, that might yield alternative solution approaches that could be ensured to always result in an exact solution to that TSP problem but anyways since the main idea of NP-Hardness is no known better than worst case exponential solution it's largely a moot point, but it's (maybe but unlikely) a valuable technical point re: in terms of the comment in the paragraph before the link.
